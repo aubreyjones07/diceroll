@@ -1,0 +1,102 @@
+main (); 
+
+function main () {
+var diceArray = []; 
+genDiceArray(diceArray, 25); 
+alert(diceArray); 
+
+
+}
+
+
+function genRandom() {
+  var rndNumber;
+  rndNumber = Math.floor(Math.random() * 6) + 1;
+  return rndNumber;
+}
+
+
+
+function genDiceArray(diceArray, rollCount) {
+  var rnd;
+  var val;
+  for (var i = 0; i < rollCount; i++) {
+    rnd = genRandom();
+    switch (rnd) {     
+    	case 1:
+        val = "one";
+        break;
+      case 2:
+        val = "two";
+        break;
+      case 3:
+        val = "three";
+        break;
+      case 4:
+        val = "four";
+        break;
+      case 5:
+        val = "five";
+        break;
+      case 6:
+        val = "six";
+        break;  
+      default:
+        val = "Error: Out of range " + myRnd;
+    }
+    diceArray.push(val);
+  }
+}
+
+function displayDiceRollCounts(diceArray) {
+  var one = 0; 
+  var two = 0; 
+  var three = 0; 
+  var four = 0; 
+  var five = 0; 
+  var six = 0;
+  var defaultVal = 0;
+  for (var i = 0; diceArray.length > 0; i++) {
+    myVal = diceArray.pop();
+    switch (myVal) {
+       case "one":
+        one++;
+        break;
+       case "two":
+        two++;
+        break;
+       case "three":
+        three++;
+        break;
+       case "four":
+        four++;
+        break;
+       case "five":
+        five++;
+        break;
+       case "six":
+        six++;
+        break; 
+      default:
+        defaultVal++;
+    }
+  }
+  console.log("One count: " + one);
+  console.log("Two counts: " + two);
+  console.log("Three counts: " + three);
+  console.log("Four counts: " + four);
+  console.log("Five counts: " + five);
+  console.log("Six counts: " + six);                   
+                          
+}
+
+
+function main() {
+  var diceArray = [];
+  genDiceArray(diceArray, 25);
+  console.log(diceArray);
+  displayDiceRollCounts(diceArray);
+}
+
+
+
